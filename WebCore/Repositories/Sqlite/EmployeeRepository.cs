@@ -66,6 +66,7 @@ namespace WebCore.Repositories.Sqlite
                 command.Parameters.Add(new SqliteParameter("@DepartmentId", entity.DepartmentId));
                 command.Parameters.Add(new SqliteParameter("@LanguageId", entity.LanguageId));
                 command.Parameters.Add(new SqliteParameter("@Id", entity.Id));
+                
                 command.ExecuteNonQuery();
             }
         }

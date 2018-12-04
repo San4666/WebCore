@@ -10,13 +10,13 @@ namespace WebCore.Repositories.Sqlite
     public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly string ConnectionString;
-
+        
+        protected abstract string TableName { get; }
+        
         protected BaseRepository(IConfiguration configuration)
         {
             ConnectionString = configuration.GetConnectionString("main");
         }
-
-        protected abstract string TableName { get; }
 
         public void Delete(TEntity entity)
         {
@@ -26,6 +26,7 @@ namespace WebCore.Repositories.Sqlite
                 var command = connect.CreateCommand();
                 command.CommandText = $"DELETE FROM {TableName} WHERE Id = @Id";
                 command.Parameters.Add(new SqliteParameter("@Id",entity.Id));
+                
                 command.ExecuteNonQuery();
             }
         }
