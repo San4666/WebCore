@@ -8,8 +8,7 @@ using WebCore.ViewModels;
 namespace WebCore.Filters
 {
     public class EmployeeFormFilter :  Attribute,  IResultFilter
-    {
-        
+    {        
         private readonly IDepartmentRepository departmentRepository;
         private readonly ILanguageRepository languageRepository;
 
