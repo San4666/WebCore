@@ -1,0 +1,25 @@
+@model WebCore.ViewModels.EmployeeForm
+
+@{
+    ViewBag.Title = "Добавление сотрудника";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.title</h2>
+
+@using (Html.BeginForm(FormMethod.Post, new { @class = "form-horizontal", role = "form" })){
+
+    @Html.ValidationSummary()
+    
+    @Html.EditorForModel()
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Добавить" />
+            @Html.ActionLink("Отмена","List")
+        </div>
+    </div>
+}
+
+
+

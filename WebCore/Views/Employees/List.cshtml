@@ -1,0 +1,41 @@
+@model ICollection<WebCore.Entities.Employee>
+
+@{
+    ViewBag.Title = "Список сотрудников";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.title</h2>
+
+
+@Html.ActionLink("Добавить", "Create")
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Возраст</th>
+        <th scope="col">Отдел</th>
+        <th scope="col">Язык</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.FirstName</td>
+            <td>@employee.LastName</td>
+            <td>@employee.Age</td>
+            <td>@employee.Department.Name</td>
+            <td>@employee.Language.Name</td>
+            <td>
+                @Html.ActionLink("Изменить", "Update", new {id = @employee.Id})
+                <br>
+                @Html.ActionLink("Удалить", "Delete", new {id = @employee.Id})
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
