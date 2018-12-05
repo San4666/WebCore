@@ -23,7 +23,7 @@ namespace WebCore.Repositories.Sqlite
             throw new NotImplementedException();
         }
 
-        protected override Language Parser(DbDataReader reader)
+        protected override Language ToEntity(DbDataReader reader)
         {
             return new Language()
             {

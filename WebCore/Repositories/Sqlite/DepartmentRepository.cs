@@ -23,7 +23,7 @@ namespace WebCore.Repositories.Sqlite
             throw new NotImplementedException();
         }
 
-        protected override Department Parser(DbDataReader reader)
+        protected override Department ToEntity(DbDataReader reader)
         {
             return new Department()
             {

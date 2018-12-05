@@ -65,7 +65,7 @@ namespace WebCore.Repositories.Sqlite
             return null != Find(id);
         }
 
-        protected abstract TEntity Parser(DbDataReader reader);
+        protected abstract TEntity ToEntity(DbDataReader reader);
 
         protected List<TEntity> ExecuteRead(DbCommand command)
         {
@@ -74,7 +74,7 @@ namespace WebCore.Repositories.Sqlite
             {
                 while (reader.Read())
                 {
-                    result.Add(Parser(reader));
+                    result.Add(ToEntity(reader));
                 }
             }
 

@@ -16,7 +16,7 @@ namespace WebCore.Repositories.Sqlite
 
         protected override string TableName => "Employees";
 
-        protected override Employee Parser(DbDataReader reader)
+        protected override Employee ToEntity(DbDataReader reader)
         {
             var languageId = Convert.ToInt32(reader["LanguageId"]);
             var departmentId = Convert.ToInt32(reader["DepartmentId"]);

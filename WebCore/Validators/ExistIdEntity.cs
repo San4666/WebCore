@@ -7,16 +7,16 @@ namespace WebCore.Validators
 {
     public  class ExistIdEntity : ValidationAttribute
     {
-        private readonly Type baseRepository;
+        private readonly Type repositoryType;
 
-        public ExistIdEntity(Type baseRepository)
+        public ExistIdEntity(Type repositoryType)
         {
-            this.baseRepository = baseRepository;
+            this.repositoryType = repositoryType;
         }
         
         protected override ValidationResult IsValid(object userId, ValidationContext validationContext)
         {
-            var existRepository = (IExistRepository)validationContext.GetService(baseRepository);
+            var existRepository = (IExistRepository)validationContext.GetService(repositoryType);
 
             Debug.Assert(existRepository != null, nameof(existRepository) + " != null");
             
